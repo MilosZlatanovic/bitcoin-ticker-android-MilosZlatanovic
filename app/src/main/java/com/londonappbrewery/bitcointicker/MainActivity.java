@@ -6,20 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
-
-
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
 
 import cz.msebera.android.httpclient.Header;
 
@@ -38,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mPriceTextView =  findViewById(R.id.priceLabel);
+        mPriceTextView = findViewById(R.id.priceLabel);
         final Spinner spinner = findViewById(R.id.currency_spinner);
 
 
@@ -62,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 String finalUrl = BASE_URL + parent.getItemAtPosition(position);
                 Log.d("Bitcoin", "Final url is: " + finalUrl);
                 letsDoSomeNetworking(finalUrl);
-
-
-        }
+            }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -91,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
             }
 
             @Override
@@ -104,9 +96,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
-
-
 }
